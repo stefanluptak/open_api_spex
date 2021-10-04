@@ -218,7 +218,7 @@ defmodule OpenApiSpex.Controller do
 
           true ->
             {summary, description} =
-              if is_map(docs) do
+              if is_map(docs) and map_size(docs) > 0 do
                 contents = Map.get(docs, "en", "")
                 [summary | description] = String.split(contents, ~r/\n\s*\n/, parts: 2)
                 {summary, List.first(description)}
